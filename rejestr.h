@@ -2,12 +2,14 @@
 #define REJESTR_H
 
 #include "bohater.h"
-
-typedef struct Rejestr {
-    Bohater *bohaterowie;
+typedef struct Element{
+    Bohater dane;
+    struct Element *nastepny;
+}Element;
+typedef struct Rejestr{
+    Element *glowa;
     int rozmiar;
-    int pojemnosc;
-} Rejestr;
+}Rejestr;
 typedef struct {
     char imie[IMIE_DLUGOSC];
     char rasa[TEKST_DLUGOSC];

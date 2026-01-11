@@ -36,21 +36,29 @@ void atrybutyBohatera(Bohater *b) { //modyfikuje atrybuty bohatera w strukturze 
     b->status = (enumStatus)temp;
 }
 
-void zmienBohatera(Rejestr *r) { //wyswietla bohaterow do modyfikacji, wybiera numer bohatera, a potem odpala funkcje modyfikacji atrybutow
-    if (r->rozmiar == 0) {
+void zmienBohatera(Rejestr *r) {
+    if (r->glowa == NULL) {
         printf("Brak bohaterow do modyfikacji.\n");
         return;
     }
     printf("Podaj numer bohatera do modyfikacji:\n");
-    for(int i = 0; i < r->rozmiar; i++) {
-        printf("%d. %s\n", i+1, r->bohaterowie[i].imie);
+    Element* obecny = r->glowa;
+    int i = 1;
+    while(obecny != NULL) {
+        printf("%d. %s\n", i, obecny->dane.imie);
+        obecny = obecny->nastepny;
+        i++;
     }
-    int temp;
-    while(scanf("%d", &temp) != 1 || temp < 1 || temp > r->rozmiar) {
+    int numer;
+    while(scanf("%d", &numer) != 1 || numer < 1 || numer > r->rozmiar) {
         printf("Blad. Podaj poprawny numer bohatera: ");
         while(getchar() != '\n');
     }
-    atrybutyBohatera(&r->bohaterowie[temp-1]);
+    obecny = r->glowa;
+    for(int k = 1; k < numer; k++) {
+        obecny = obecny->nastepny;
+    }
+    atrybutyBohatera(&obecny->dane);
 }
 
 char* statusNaTekst(enumStatus status) { //pobiera status z enum i zwraca tekstowa wersje statusu

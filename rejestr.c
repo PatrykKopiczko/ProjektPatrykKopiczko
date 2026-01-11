@@ -4,28 +4,31 @@
 #include <string.h>
 
 void dodajRejestr(Rejestr* r) { //tworzy nowy rejestr bohaterow (uzywane do glownego rejestru i zwracania wynikow wyszukiwania)
-    r->pojemnosc = 10;
+    r->glowa = NULL;
     r->rozmiar = 0;
-    r->bohaterowie = malloc(r->pojemnosc * sizeof(Bohater));
-    if(!r->bohaterowie) {
-        printf("Blad alokacji pamieci!\n");
-        exit(1);
-    }
 }
 
+
 void wklejBohatera(Rejestr* r, Bohater b) { //bierze strukture b i wkleja ja do rejestru r
-    if(r->rozmiar >= r->pojemnosc) {
-        int new_capacity = r->pojemnosc * 2;
-        if (new_capacity == 0) new_capacity = 10;
-        Bohater* temp = realloc(r->bohaterowie, new_capacity * sizeof(Bohater));
-        if(!temp) {
-            printf("Blad realokacji pamieci!\n");
-            return;
-        }
-        r->bohaterowie = temp;
-        r->pojemnosc = new_capacity;
+    Element *nowy = malloc(sizeof(Element));
+    if (!nowy){
+        printf("Blad alokacji pamieci");
+        return;
     }
-    r->bohaterowie[r->rozmiar] = b;
+    nowy->dane = b;
+    nowy->nastepny = NULL;
+
+    if(r->glowa==NULL){
+    r->glowa = nowy;
+    }
+    else
+    {
+    Element* obecny = r->glowa;
+    while (obecny->nastepny != NULL){
+        obecny=obecny->nastepny;
+    }
+    obecny->nastepny=nowy;
+    }
     r->rozmiar++;
 }
 
@@ -34,7 +37,7 @@ void ustawFiltry(Filtry* f) { //pobiera od uzytkownika filtry i zapisuje je w st
     scanf(" %99[^\n]", f->imie);
     printf("Podaj rase bohatera lub prefiks (lub '-' aby pominac): ");
     scanf(" %49[^\n]", f->rasa);
-    printf("Podaj klase bohatera (-1 aby pominac, 0-5): ");
+    printf("Podaj klase bohatera (-1 aby pominac) WOJOWNIK - 0, MAG - 1, KAPLAN - 2, LOTRZYK - 3, LOWCA - 4, DRUID - 5: ");
     while(scanf("%d", &f->klasa) != 1 || f->klasa < -1 || f->klasa > 5) {
         printf("Blad. Podaj liczbe -1 do 5: ");
         while(getchar() != '\n');
@@ -59,46 +62,46 @@ void ustawFiltry(Filtry* f) { //pobiera od uzytkownika filtry i zapisuje je w st
         printf("Blad. Podaj liczbe >= minreputacja lub -1: ");
         while(getchar() != '\n');
     }
-    printf("Podaj status bohatera (-1 aby pominac, 0-4): ");
+    printf("Podaj status bohatera (-1 aby pominac), AKTYWNY - 0, NA MISJI - 1, RANNY - 2, ZAGINIONY -3 , ZAWIESZONY - 4: ");
     while(scanf("%d", &f->status) != 1 || f->status < -1 || f->status > 4) {
         printf("Blad. Podaj liczbe -1 do 4: ");
         while(getchar() != '\n');
     }
 }
 
-void filtruj(Rejestr* r, Filtry* f, Rejestr* wynik) { //bierze rejestr r, porownuje kazdego bohatera z filtrami, i jesli pasuje to wkleja bohatera rejestru wynik
-    for(int i = 0; i < r->rozmiar; i++) {
+void filtruj(Rejestr* r, Filtry* f, Rejestr* wynik) {
+    Element* obecny = r->glowa;
+
+    while (obecny != NULL) {
+        Bohater* b = &obecny->dane;
         int pasuje = 1;
-        if(strcmp(f->imie, "-") != 0 && strncmp(r->bohaterowie[i].imie, f->imie, strlen(f->imie)) != 0)
-            pasuje = 0;
-        if(strcmp(f->rasa, "-") != 0 && strncmp(r->bohaterowie[i].rasa, f->rasa, strlen(f->rasa)) != 0)
-            pasuje = 0;
-        if(f->klasa != -1 && r->bohaterowie[i].klasa != (enumKlasa)f->klasa)
-            pasuje = 0;
-        if(f->minpoziom != -1 && r->bohaterowie[i].poziom < f->minpoziom)
-            pasuje = 0;
-        if(f->maxpoziom != -1 && r->bohaterowie[i].poziom > f->maxpoziom)
-            pasuje = 0;
-        if(f->minreputacja != -1 && r->bohaterowie[i].reputacja < f->minreputacja)
-            pasuje = 0;
-        if(f->maxreputacja != -1 && r->bohaterowie[i].reputacja > f->maxreputacja)
-            pasuje = 0;
-        if(f->status != -1 && r->bohaterowie[i].status != (enumStatus)f->status)
-            pasuje = 0;
-        if(pasuje) {
-            wklejBohatera(wynik, r->bohaterowie[i]);
+        if(strcmp(f->imie, "-") != 0 && strncmp(b->imie, f->imie, strlen(f->imie)) != 0) pasuje = 0;
+        if(strcmp(f->rasa, "-") != 0 && strncmp(b->rasa, f->rasa, strlen(f->rasa)) != 0) pasuje = 0;
+        if(f->klasa != -1 && b->klasa != (enumKlasa)f->klasa) pasuje = 0;
+        if(f->minpoziom != -1 && b->poziom < f->minpoziom) pasuje = 0;
+        if(f->maxpoziom != -1 && b->poziom > f->maxpoziom) pasuje = 0;
+        if(f->minreputacja != -1 && b->reputacja < f->minreputacja) pasuje = 0;
+        if(f->maxreputacja != -1 && b->reputacja > f->maxreputacja) pasuje = 0;
+        if(f->status != -1 && b->status != (enumStatus)f->status) pasuje = 0;
+
+        if(pasuje==1) {
+            wklejBohatera(wynik, *b);
         }
+        obecny = obecny->nastepny;
     }
 }
 
-void wyswietlBohaterow(Rejestr* r) { //wyswietla wszystkich bohaterow z podanego rejestru
-    if (r->rozmiar == 0) {
+void wyswietlBohaterow(Rejestr* r) {
+    if (r->glowa == NULL) {
         printf("Brak bohaterow do wyswietlenia.\n");
         return;
     }
-    for(int i = 0; i < r->rozmiar; i++) {
-        Bohater b = r->bohaterowie[i];
-        printf("Bohater %d:\n", i+1);
+
+    Element* obecny = r->glowa;
+    int i = 1;
+    while (obecny != NULL) {
+        Bohater b = obecny->dane;
+        printf("Bohater %d:\n", i);
         printf("Imie: %s\n", b.imie);
         printf("Rasa: %s\n", b.rasa);
         printf("Klasa: %s\n", klasaNaTekst(b.klasa));
@@ -106,5 +109,17 @@ void wyswietlBohaterow(Rejestr* r) { //wyswietla wszystkich bohaterow z podanego
         printf("Reputacja: %d\n", b.reputacja);
         printf("Status: %s\n", statusNaTekst(b.status));
         printf("-----------------------\n");
+        obecny = obecny->nastepny;
+        i++;
     }
+}
+void usunRejestr(Rejestr *r){
+    Element* obecny = r->glowa;
+    while (obecny != NULL){
+        Element *temp = obecny;
+        obecny = obecny->nastepny;
+        free(temp);
+    }
+    r->glowa=NULL;
+    r->rozmiar=0;
 }

@@ -43,7 +43,6 @@ int main() {
                 filtruj(&r, &f, &wynik);
                 printf("\n--- WYNIKI WYSZUKIWANIA ---\n");
                 wyswietlBohaterow(&wynik);
-                free(wynik.bohaterowie);
                 break;
             }
             case 4:
@@ -56,6 +55,5 @@ int main() {
                 printf("Niepoprawny wybor.\n");
         }
     } while(wybor != 0);
-    free(r.bohaterowie); //zwalnia pamiec po zakonczeniu programu
     return 0;
 }

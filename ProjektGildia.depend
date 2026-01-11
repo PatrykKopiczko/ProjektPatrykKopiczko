@@ -1,0 +1,25 @@
+# depslib dependency file v1.0
+1767716820 source:c:\users\patrykoo\desktop\projektgildia\pliki.c
+
+1768149114 source:c:\users\patrykoo\desktop\projektgildia\bohater.c
+	"bohater.h"
+	"rejestr.h"
+	<stdio.h>
+
+1768139569 c:\users\patrykoo\desktop\projektgildia\bohater.h
+
+1768149168 c:\users\patrykoo\desktop\projektgildia\rejestr.h
+	"bohater.h"
+
+1768149179 source:c:\users\patrykoo\desktop\projektgildia\rejestr.c
+	"rejestr.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1768149213 source:c:\users\patrykoo\desktop\projektgildia\main.c
+	"bohater.h"
+	"rejestr.h"
+	<stdio.h>
+	<stdlib.h>
+
