@@ -8,6 +8,9 @@ void nazwaPliku(char *filename) {
         if (scanf(" %99[^\n]", filename) == 1) {
             break;
         }
+        else{
+            printf("Podaj poprawna nazwe: \n");
+        }
         while (getchar() != '\n');
     }
 }

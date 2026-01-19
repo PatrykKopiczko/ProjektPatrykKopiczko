@@ -96,19 +96,27 @@ void wyswietlBohaterow(Rejestr* r) {
         printf("Brak bohaterow do wyswietlenia.\n");
         return;
     }
-
+    system("cls");
     Element* obecny = r->glowa;
     int i = 1;
     while (obecny != NULL) {
         Bohater b = obecny->dane;
-        printf("Bohater %d:\n", i);
-        printf("Imie: %s\n", b.imie);
-        printf("Rasa: %s\n", b.rasa);
-        printf("Klasa: %s\n", klasaNaTekst(b.klasa));
-        printf("Poziom: %d\n", b.poziom);
-        printf("Reputacja: %d\n", b.reputacja);
-        printf("Status: %s\n", statusNaTekst(b.status));
-        printf("-----------------------\n");
+        printf("%-3d|", i);
+        printf("%-100s|", b.imie);
+        printf("%-50s|", b.rasa);
+        printf("%-10s|", klasaNaTekst(b.klasa));
+        printf("%-4d|", b.poziom);
+        printf("%-4d|", b.reputacja);
+        printf("%-10s\n", statusNaTekst(b.status));
+        printf("---+");
+        for (int i = 0; i < 100; i++) {
+            printf("-");
+        }
+        printf("+");
+        for (int i = 0; i < 50; i++) {
+            printf("-");
+        }
+        printf("+----------+----+----+----------+\n");
         obecny = obecny->nastepny;
         i++;
     }

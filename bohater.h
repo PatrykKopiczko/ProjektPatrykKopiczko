@@ -3,6 +3,7 @@
 
 #define IMIE_DLUGOSC 100
 #define TEKST_DLUGOSC 50
+
 struct Rejestr;
 typedef struct Rejestr Rejestr;
 typedef enum {
