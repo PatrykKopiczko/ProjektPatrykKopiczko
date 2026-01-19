@@ -15,20 +15,17 @@ void pokazMenu() {
     printf("     +--------------------------+          +--------------------------+\n");
     printf("     |  1. Dodaj bohatera       |          |  2. Wyswietl bohaterow   |\n");
     printf("     +--------------------------+          +--------------------------+\n");
-
     printf("     +--------------------------+          +--------------------------+\n");
     printf("     |  3. Wyszukaj bohaterow   |          |  4. Modyfikuj bohatera   |\n");
     printf("     +--------------------------+          +--------------------------+\n");
-
     printf("     +--------------------------+          +--------------------------+\n");
     printf("     |  5. Wczytaj z pliku      |          |  6. Zapisz do pliku      |\n");
     printf("     +--------------------------+          +--------------------------+\n");
-
-    printf("                        +--------------------------+\n");
-    printf("                        |        0. Wyjscie        |\n");
-    printf("                        +--------------------------+\n");
+    printf("     +--------------------------+          +--------------------------+\n");
+    printf("     |  7. Usun bohaterow       |          |  0. Wyjscie              |\n");
+    printf("     +--------------------------+          +--------------------------+\n");
     printf("\n");
-    printf("+----------------------------------------------------------------------+\n");
+    printf("+---------------------------------------------------------------------+\n");
 printf("\n");
     printf("                        +--------------------------+\n");
     printf("                        |      DECYZJA GILDII      |\n");
@@ -47,7 +44,10 @@ int main() {
     do {
         pokazMenu();
         if (scanf("%d", &wybor) != 1) {
-            printf("Blad. Wpisz liczbe.\n");
+            printf("==Blad. Wpisz liczbe==\n");
+             printf("\n==Nacisnij Enter, aby wrocic do menu==");
+            getchar();
+            getchar();
             while(getchar() != '\n');
             continue;
         }
@@ -58,7 +58,7 @@ int main() {
                 Bohater b;
                 nowyBohatera(&b);
                 wklejBohatera(&r, b);
-                printf("\nNacisnij Enter, aby wrocic do menu...");
+                printf("\n==Nacisnij Enter, aby wrocic do menu==");
                 getchar();
                 getchar();
                 break;
@@ -66,7 +66,7 @@ int main() {
             case 2:
                 system("cls");
                 wyswietlBohaterow(&r);//wyswietla wszystkich bohaterow z rejestru
-                printf("\nNacisnij Enter, aby wrocic do menu...");
+                printf("\n==Nacisnij Enter, aby wrocic do menu==");
                 getchar();
                 getchar();
                 break;
@@ -77,9 +77,9 @@ int main() {
                 Rejestr wynik;
                 dodajRejestr(&wynik);
                 filtruj(&r, &f, &wynik);
-                printf("\n--- WYNIKI WYSZUKIWANIA ---\n");
+                printf("\n--== WYNIKI WYSZUKIWANIA ==--\n");
                 wyswietlBohaterow(&wynik);
-                printf("\nNacisnij Enter, aby wrocic do menu...");
+                printf("\n==Nacisnij Enter, aby wrocic do menu==");
                 getchar();
                 getchar();
                 break;
@@ -87,7 +87,7 @@ int main() {
             case 4:
                 system("cls");
                 zmienBohatera(&r); //modyfikacja bohatera z podanym numerem
-                printf("\nNacisnij Enter, aby wrocic do menu...");
+                printf("\n==Nacisnij Enter, aby wrocic do menu==");
                 getchar();
                 getchar();
                 break;
@@ -104,24 +104,33 @@ int main() {
             case 6:{
                 char filename[100];
                 nazwaPliku(filename);
-                if (zapiszDoPliku(&r, filename) == 1) printf("Blad otwarcia pliku");
+                if (zapiszDoPliku(&r, filename) == 1) printf("==Blad otwarcia pliku==");
                 break;
                 }
+            case 7:
+                system("cls");
+                Filtry f;
+                ustawFiltry(&f);
+                usunBohaterow(&r, &f);
+                printf("\n==Nacisnij Enter, aby wrocic do menu==");
+                getchar();
+                getchar();
+                break;
             case 0:{
                 system("cls");
             char d;
             do {
-                printf("Czy chcesz zapisac [T/N]\n");
+                printf("==Czy chcesz zapisac [T/N]\n==");
                 scanf("%c", &d);
                 if (d != 't' && d != 'T' && d != 'n' && d != 'N') {
-                printf("BLAD! Wybierz [T]ak lub [N]ie.\n");
+                printf("==BLAD! Wybierz [T]ak lub [N]ie.\n==");
                 while(getchar() != '\n');
             }
             } while (d != 't' && d != 'T' && d != 'n' && d != 'N');
                 if (wybor == d || wybor == d){
                      char filename[100];
                     nazwaPliku(filename);
-                    if (zapiszDoPliku(&r, filename) == 1) printf("Blad otwarcia pliku");
+                    if (zapiszDoPliku(&r, filename) == 1) printf("==Blad otwarcia pliku==");
                 }
                 printf("Koniec programu.\n");
                 break;

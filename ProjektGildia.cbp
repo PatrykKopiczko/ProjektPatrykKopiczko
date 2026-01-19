@@ -23,6 +23,7 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="bohater.h" />
+		<Unit filename="lista.txt" />
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>

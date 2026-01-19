@@ -25,4 +25,5 @@ void wklejBohatera(Rejestr* r, Bohater b);
 void ustawFiltry(Filtry* f);
 void filtruj(Rejestr* r, Filtry* f, Rejestr* wynik);
 void wyswietlBohaterow(Rejestr* r);
+void usunBohaterow(Rejestr* r, Filtry* f);
 #endif
