@@ -33,13 +33,13 @@
 1768856847 d:\patryk\dokumenty\projektpatrykkopiczko\rejestr.h
 	"bohater.h"
 
-1768857875 source:d:\patryk\dokumenty\projektpatrykkopiczko\rejestr.c
+1768861257 source:d:\patryk\dokumenty\projektpatrykkopiczko\rejestr.c
 	"rejestr.h"
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 
-1768858864 source:d:\patryk\dokumenty\projektpatrykkopiczko\pliki.c
+1768858966 source:d:\patryk\dokumenty\projektpatrykkopiczko\pliki.c
 	"pliki.h"
 	<stdio.h>
 	<stdlib.h>
@@ -47,7 +47,7 @@
 1768846844 d:\patryk\dokumenty\projektpatrykkopiczko\pliki.h
 	"rejestr.h"
 
-1768858140 source:d:\patryk\dokumenty\projektpatrykkopiczko\main.c
+1768861473 source:d:\patryk\dokumenty\projektpatrykkopiczko\main.c
 	"bohater.h"
 	"rejestr.h"
 	"pliki.h"

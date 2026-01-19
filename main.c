@@ -22,8 +22,11 @@ void pokazMenu() {
     printf("     |  5. Wczytaj z pliku      |          |  6. Zapisz do pliku      |\n");
     printf("     +--------------------------+          +--------------------------+\n");
     printf("     +--------------------------+          +--------------------------+\n");
-    printf("     |  7. Usun bohaterow       |          |  0. Wyjscie              |\n");
+    printf("     |  7. Usun bohaterow       |          |  8. Sortuj               |\n");
     printf("     +--------------------------+          +--------------------------+\n");
+    printf("                        +--------------------------+\n");
+    printf("                        |  0. Wyjscie              |\n");
+    printf("                        +--------------------------+\n");
     printf("\n");
     printf("+---------------------------------------------------------------------+\n");
 printf("\n");
@@ -112,6 +115,13 @@ int main() {
                 Filtry f;
                 ustawFiltry(&f);
                 usunBohaterow(&r, &f);
+                printf("\n==Nacisnij Enter, aby wrocic do menu==");
+                getchar();
+                getchar();
+                break;
+            case 8:
+                system("cls");
+                sortuj(&r);
                 printf("\n==Nacisnij Enter, aby wrocic do menu==");
                 getchar();
                 getchar();

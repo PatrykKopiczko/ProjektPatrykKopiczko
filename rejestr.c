@@ -100,6 +100,15 @@ void wyswietlBohaterow(Rejestr* r) {
     Element* obecny = r->glowa;
     printf("%-3s|%-100s|%-50s|", "lp", "Imie", "Rasa");
     printf("%-10s|%-4s|%-4s|%-10s\n", "Klasa", "Poz", "Rep", "Status");
+        printf("---+");
+        for (int i = 0; i < 100; i++) {
+            printf("-");
+        }
+        printf("+");
+        for (int i = 0; i < 50; i++) {
+            printf("-");
+        }
+        printf("+----------+----+----+----------+\n");
     int i = 1;
     while (obecny != NULL) {
         Bohater b = obecny->dane;
@@ -160,4 +169,52 @@ void usunBohaterow(Rejestr* r, Filtry* f) {
     r->glowa=nowy.glowa;
     r->rozmiar=nowy.rozmiar;
     printf("==Usuwanie zakonczone==\n");
+}
+
+void sortuj(Rejestr *r) {
+    if (r->glowa == NULL) {
+        printf("==Rejestr jest pusty==\n");
+        return;
+    }
+
+    int wybor;
+    printf("==Wybierz po czym sortowac==\n==1. Imie==\n==2. Poziom==\n==3. Rasa==\n==Wybor>> ");
+    scanf("%d", &wybor);
+
+    Rejestr wynik;
+    dodajRejestr(&wynik);
+
+    Element* el = r->glowa;
+    while (el != NULL) {
+        wklejBohatera(&wynik, el->dane);
+        el = el->nastepny;
+    }
+
+    int zamiana;
+    do {
+        zamiana = 0;
+        Element* obecny = wynik.glowa;
+        while (obecny->nastepny != NULL) {
+            int czyZamienic = 0;
+
+            if (wybor == 1) {
+                if (strcmp(obecny->dane.imie, obecny->nastepny->dane.imie) > 0) czyZamienic = 1;
+            } else if (wybor == 2) {
+                if (obecny->dane.poziom < obecny->nastepny->dane.poziom) czyZamienic = 1;
+            } else if (wybor == 3) {
+                if (strcmp(obecny->dane.rasa, obecny->nastepny->dane.rasa) > 0) czyZamienic = 1;
+            }
+
+            if (czyZamienic) {
+                Bohater temp = obecny->dane;
+                obecny->dane = obecny->nastepny->dane;
+                obecny->nastepny->dane = temp;
+                zamiana = 1;
+            }
+            obecny = obecny->nastepny;
+        }
+    } while (zamiana);
+
+    wyswietlBohaterow(&wynik);
+    usunRejestr(&wynik);
 }
