@@ -1,6 +1,7 @@
 #include "pliki.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 void nazwaPliku(char *filename) {
     while (1) {

@@ -6,7 +6,6 @@
 
 void pokazMenu() {
     system("cls");
-     //wyswielta menu za pomoca printf
     printf("      ________________________________________________________________\n");
     printf("    //                                                                \\\\\n");
     printf("   ||             --== G I L D I A  P O S Z U K I W A C Z Y ==--       ||\n");
@@ -56,7 +55,7 @@ int main() {
         }
         while(getchar() != '\n');
         switch(wybor) {
-            case 1: { //dodawanie bohatera
+            case 1: {
                 system("cls");
                 Bohater b;
                 nowyBohatera(&b);
@@ -68,13 +67,13 @@ int main() {
             }
             case 2:
                 system("cls");
-                wyswietlBohaterow(&r);//wyswietla wszystkich bohaterow z rejestru
+                wyswietlBohaterow(&r);
                 printf("\n==Nacisnij Enter, aby wrocic do menu==");
                 getchar();
                 getchar();
                 break;
             case 3: {
-                system("cls"); //uruchamia funkcje do filtrow, a po przefiltrowaniu wyswietla rejestr wynik, a na koniec go zwalnia
+                system("cls");
                 Filtry f;
                 ustawFiltry(&f);
                 Rejestr wynik;
@@ -82,6 +81,7 @@ int main() {
                 filtruj(&r, &f, &wynik);
                 printf("\n--== WYNIKI WYSZUKIWANIA ==--\n");
                 wyswietlBohaterow(&wynik);
+                usunRejestr(&wynik);
                 printf("\n==Nacisnij Enter, aby wrocic do menu==");
                 getchar();
                 getchar();
@@ -108,10 +108,14 @@ int main() {
                 char filename[100];
                 nazwaPliku(filename);
                 if (zapiszDoPliku(&r, filename) == 1) printf("==Blad otwarcia pliku==");
+                printf("\nNacisnij Enter, aby wrocic do menu...");
+                getchar();
+                getchar();
                 break;
                 }
             case 7:
                 system("cls");
+                printf("==Podaj cechy bohaterów do usuniecia==\n")
                 Filtry f;
                 ustawFiltry(&f);
                 usunBohaterow(&r, &f);
@@ -130,14 +134,14 @@ int main() {
                 system("cls");
             char d;
             do {
-                printf("==Czy chcesz zapisac [T/N]\n==");
+                printf("==Czy chcesz zapisac [T/N]==\n>>");
                 scanf("%c", &d);
                 if (d != 't' && d != 'T' && d != 'n' && d != 'N') {
                 printf("==BLAD! Wybierz [T]ak lub [N]ie.\n==");
                 while(getchar() != '\n');
             }
             } while (d != 't' && d != 'T' && d != 'n' && d != 'N');
-                if (wybor == d || wybor == d){
+                if (d == 't' || d == 'T'){
                      char filename[100];
                     nazwaPliku(filename);
                     if (zapiszDoPliku(&r, filename) == 1) printf("==Blad otwarcia pliku==");

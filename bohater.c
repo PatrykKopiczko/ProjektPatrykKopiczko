@@ -2,13 +2,13 @@
 #include "rejestr.h"
 #include <stdio.h>
 
-void nowyBohatera(Bohater *b) { //modyfikuje imie w strukturze b i odpala funkcje modyfikacji atrybutów
+void nowyBohatera(Bohater *b) {
     printf("==Podaj imie bohatera>> ");
     scanf(" %99[^\n]", b->imie);
     atrybutyBohatera(b);
 }
 
-void atrybutyBohatera(Bohater *b) { //modyfikuje atrybuty bohatera w strukturze b
+void atrybutyBohatera(Bohater *b) {
     printf("==Podaj rase bohatera>> ");
     scanf(" %49[^\n]", b->rasa);
     int temp;
@@ -61,7 +61,7 @@ void zmienBohatera(Rejestr *r) {
     atrybutyBohatera(&obecny->dane);
 }
 
-char* statusNaTekst(enumStatus status) { //pobiera status z enum i zwraca tekstowa wersje statusu
+char* statusNaTekst(enumStatus status) {
     switch(status) {
         case AKTYWNY: return "aktywny";
         case NA_MISJI: return "na_misji";
@@ -72,7 +72,7 @@ char* statusNaTekst(enumStatus status) { //pobiera status z enum i zwraca teksto
     }
 }
 
-char* klasaNaTekst(enumKlasa klasa) {//pobiera klase z enum i zwraca tekstowa wersje klasy
+char* klasaNaTekst(enumKlasa klasa) {
     switch(klasa) {
         case WOJOWNIK: return "wojownik";
         case MAG: return "mag";

@@ -1,0 +1,300 @@
+Arthas Menethil
+Upadly Paladyn
+0 80 10 4
+Jaina Proudmoore
+Czarodziejka
+1 75 90 0
+Uther Lightbringer
+Paladyn
+2 90 100 0
+Sylvanas Windrunner
+Elfka
+4 85 20 3
+Thrall Syn Durotana
+Ork
+5 70 95 1
+Grommash Hellscream
+Ork
+0 65 50 2
+Malferion Stormrage
+Nocny Elf
+5 95 100 0
+Tyrande Whisperwind
+Nocna Elfka
+4 90 95 0
+Illidan Stormrage
+Demon
+0 99 5 3
+Guldan Czarnoksieznik
+Ork
+1 88 0 4
+Kaelthas Sunstrider
+Krwawy Elf
+1 72 40 1
+Rexxar Wedrowiec
+MokNathal
+4 55 85 0
+Chen Stormstout
+Pandaren
+5 48 90 1
+Voljin Wodz
+Troll
+4 60 80 2
+Baine Bloodhoof
+Tauren
+0 52 95 0
+Garrosh Hellscream
+Ork
+0 68 15 4
+Anduin Wrynn
+Czlowiek
+2 40 98 0
+Magni Bronzebeard
+Krasnolud
+0 70 95 0
+Varian Wrynn
+Czlowiek
+0 85 100 3
+Malygos Tkacz
+Smok
+1 100 50 4
+Alexstrasza Zycie
+Smok
+2 100 100 0
+Nozdormu Ponadczasowy
+Smok
+1 100 90 1
+Ysera Sniaca
+Smok
+5 100 95 2
+Deathwing Destruktor
+Smok
+0 100 0 4
+Khadgar Mag
+Czlowiek
+1 82 95 0
+Medivh Straznik
+Czlowiek
+1 99 60 3
+Lothar Lew Azeroth
+Czlowiek
+0 88 100 3
+Turalyon Swiety
+Czlowiek
+2 85 95 1
+Alleria Windrunner
+Elfka
+4 82 70 3
+Muradin Bronzebeard
+Krasnolud
+0 78 90 2
+Falstad Wildhammer
+Krasnolud
+4 62 85 0
+Moira Thaurissan
+Krasnoludka
+2 58 50 0
+Gallywix Gruby
+Goblin
+3 30 10 0
+Gazlowe Inzynier
+Goblin
+3 45 75 1
+Mekkatorque Konstruktor
+Gnom
+3 55 90 0
+Chromie Podrozniczka
+Gnomka
+1 90 95 0
+Valeera Sanguinar
+Krwawa Elfka
+3 65 60 0
+Rehgar Earthfury
+Ork
+2 62 85 0
+Zuljin Wodz
+Troll
+4 55 20 2
+ChoGall Dwuiglowy
+Ogr
+1 70 5 4
+Teron Gorefiend
+Rycerz Smierci
+0 75 10 3
+Anubarak Krol
+Karaluch
+0 72 15 2
+KelThuzad Licz
+Nieumarly
+1 85 5 0
+Hogger Postrach
+Gnoll
+0 10 1 0
+Leeroy Jenkins
+Czlowiek
+0 5 50 2
+Mankrik Maz
+Ork
+0 25 60 1
+Gamon Wybawca
+Tauren
+0 15 99 0
+Millhouse Manastorm
+Gnom
+1 40 30 4
+Nat Pagle Wedkarz
+Czlowiek
+3 20 85 1
+Hemingway Mysliwy
+Krasnolud
+4 50 80 0
+Legolas Zielony
+Elf
+4 60 95 0
+Gimli Syn Gloina
+Krasnolud
+0 55 90 1
+Aragorn Obiezyswiat
+Czlowiek
+0 80 100 0
+Gandalf Szary
+Mag
+1 95 100 3
+Frodo Baggins
+Hobbit
+3 5 100 2
+Samwise Gamgee
+Hobbit
+3 8 100 0
+Boromir z Gondoru
+Czlowiek
+0 65 70 3
+Faramir Straznik
+Czlowiek
+4 60 90 1
+Galadriela Pani
+Elfka
+1 99 95 0
+Elrond Pan
+Elf
+2 90 98 0
+Thranduil Krol
+Elf
+0 85 70 0
+Eowina Wojowniczka
+Czlowiek
+0 50 95 2
+Theoden Krol
+Czlowiek
+0 70 90 3
+Eomer Marszalek
+Czlowiek
+0 68 92 1
+Saruman Wielu Barw
+Mag
+1 92 10 4
+Gollum Smeagol
+Stwor
+3 15 0 3
+Witch-king Angmar
+Upior
+0 85 0 0
+Lurtz Uruk-hai
+Ork
+0 40 5 3
+Bilbo Baggins
+Hobbit
+3 12 90 4
+Thorin Debowa Tarcza
+Krasnolud
+0 75 80 3
+Balin Stary
+Krasnolud
+2 60 90 3
+Dwalin Wojownik
+Krasnolud
+0 65 85 0
+Bard Lucznik
+Czlowiek
+4 58 95 1
+Radagast Bury
+Druid
+5 80 90 0
+Beorn Zmiennoksztaltny
+Czlowiek-Niedzwiedz
+5 75 85 0
+Glorfindel Zlotowlosy
+Elf
+0 92 95 0
+Cirdan Budowniczy
+Elf
+1 98 90 0
+Celeborn Pan
+Elf
+0 88 85 1
+Isildur Dziedzic
+Czlowiek
+0 75 40 3
+Denethor Namiestnik
+Czlowiek
+1 65 30 4
+Gryf Zloty
+Bestia
+4 30 70 0
+Smaug Zloty
+Smok
+1 95 0 3
+Azog Plugawy
+Ork
+0 65 5 2
+Bolg Syn Azoga
+Ork
+0 55 10 1
+Grima Gadzi Jezyk
+Czlowiek
+3 20 5 4
+Erestor Doradca
+Elf
+1 55 80 0
+Haldir ze Lorien
+Elf
+4 50 85 2
+Gwaihir Wladca Orlow
+Ptak
+4 70 99 0
+Treebeard Drzewiec
+Ent
+5 95 100 0
+Quickbeam Ent
+Ent
+5 80 95 1
+Shelob Pajeczyca
+Potwor
+3 60 0 0
+Durin Nesmiertelny
+Krasnolud
+0 99 100 4
+Celebrimbor Kowal
+Elf
+1 90 80 3
+Gil-galad Krol
+Elf
+0 95 100 3
+Elendil Wysoki
+Czlowiek
+0 90 100 3
+Anarion Syn Elendila
+Czlowiek
+0 75 85 3
+Khamul Cien Wschodu
+Upior
+0 70 5 0
+Mouth of Sauron
+Czlowiek
+1 60 0 0
+Gothmog Dowodca
+Ork
+0 55 10 2
+Shagrat Kapitanie
+Ork
+0 30 15 1

@@ -3,13 +3,13 @@
 #include <stdlib.h>
 #include <string.h>
 
-void dodajRejestr(Rejestr* r) { //tworzy nowy rejestr bohaterow (uzywane do glownego rejestru i zwracania wynikow wyszukiwania)
+void dodajRejestr(Rejestr* r) {
     r->glowa = NULL;
     r->rozmiar = 0;
 }
 
 
-void wklejBohatera(Rejestr* r, Bohater b) { //bierze strukture b i wkleja ja do rejestru r
+void wklejBohatera(Rejestr* r, Bohater b) {
     Element *nowy = malloc(sizeof(Element));
     if (!nowy){
         printf("Blad alokacji pamieci");
@@ -31,8 +31,7 @@ void wklejBohatera(Rejestr* r, Bohater b) { //bierze strukture b i wkleja ja do 
     }
     r->rozmiar++;
 }
-
-void ustawFiltry(Filtry* f) { //pobiera od uzytkownika filtry i zapisuje je w strukturze Filtry f
+void ustawFiltry(Filtry* f) {
     printf("==Podaj imie bohatera lub prefiks (lub '-' aby pominac)>> ");
     scanf(" %99[^\n]", f->imie);
     printf("==Podaj rase bohatera lub prefiks (lub '-' aby pominac)>> ");
@@ -179,8 +178,8 @@ void sortuj(Rejestr *r) {
 
     int wybor;
     printf("==Wybierz po czym sortowac==\n==1. Imie==\n==2. Poziom==\n==3. Rasa==\n==Wybor>> ");
-    scanf("%d", &wybor);
-
+    while (scanf("%d", &wybor) !=1 || wybor > 3 || wybor < 1) printf ("==Niepoprawna opcja==\nWybor>>");
+    while(getchar() != '\n');
     Rejestr wynik;
     dodajRejestr(&wynik);
 
